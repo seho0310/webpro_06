@@ -1,13 +1,13 @@
-"use strict"; // 
+"use strict"; 
 
 const express = require("express");
 const app = express();
 
 app.set("view engine", "ejs");
 app.use("/public", express.static(__dirname + "/public"));
-app.use(express.urlencoded({ extended: true })); // [cite: 105]
+app.use(express.urlencoded({ extended: true })); 
 
-// --- データ定義 (本来はDBだが変数で代用 ) ---
+
 
 // 1. 米津玄師の曲データ
 let songs = [
@@ -29,7 +29,7 @@ let places = [
 ];
 
 
-// --- 共通関数など ---
+
 // 削除・更新時の対象検索用
 const findItem = (array, id) => array.find(item => item.id == id);
 const findIndex = (array, id) => array.findIndex(item => item.id == id);
@@ -42,24 +42,23 @@ app.get("/", (req, res) => {
 });
 
 
-// ==========================================
-// システム1: 今の気分に最適な米津玄師の曲 (Songs)
-// ==========================================
 
-// 一覧表示 (Read List) [cite: 128]
+// システム1: 今の気分に最適な米津玄師の曲 (Songs)
+
+// 一覧表示 (Read List) 
 app.get("/songs", (req, res) => {
     res.render("songs_list", { data: songs });
 });
 
-// 新規登録フォーム (Create Form) [cite: 133]
+// 新規登録フォーム (Create Form) 
 app.get("/songs/create", (req, res) => {
-    // 講義資料p.21にならい、HTMLファイルを表示またはEJSでフォームを表示
+    
     res.render("songs_new"); 
 });
 
-// 新規登録処理 (Create Action) [cite: 152]
+// 新規登録処理 (Create Action) 
 app.post("/songs", (req, res) => {
-    const id = songs.length > 0 ? songs[songs.length - 1].id + 1 : 1; // ID自動採番
+    const id = songs.length > 0 ? songs[songs.length - 1].id + 1 : 1; 
     songs.push({
         id: id,
         title: req.body.title,
@@ -69,7 +68,7 @@ app.post("/songs", (req, res) => {
     res.redirect("/songs");
 });
 
-// 詳細表示 (Read Detail) [cite: 135]
+// 詳細表示 (Read Detail) 
 app.get("/songs/:id", (req, res) => {
     const item = findItem(songs, req.params.id);
     if (item) {
@@ -79,7 +78,7 @@ app.get("/songs/:id", (req, res) => {
     }
 });
 
-// 編集フォーム (Update Form) [cite: 166]
+// 編集フォーム (Update Form) 
 app.get("/songs/edit/:id", (req, res) => {
     const item = findItem(songs, req.params.id);
     if (item) {
@@ -89,7 +88,7 @@ app.get("/songs/edit/:id", (req, res) => {
     }
 });
 
-// 更新処理 (Update Action) [cite: 173]
+// 更新処理 (Update Action) 
 app.post("/songs/update/:id", (req, res) => {
     const index = findIndex(songs, req.params.id);
     if (index !== -1) {
@@ -100,19 +99,19 @@ app.post("/songs/update/:id", (req, res) => {
     res.redirect("/songs");
 });
 
-// 削除処理 (Delete Action) [cite: 145]
+// 削除処理 (Delete Action) 
 app.get("/songs/delete/:id", (req, res) => {
     const index = findIndex(songs, req.params.id);
     if (index !== -1) {
-        songs.splice(index, 1); // [cite: 150]
+        songs.splice(index, 1); 
     }
     res.redirect("/songs");
 });
 
 
-// ==========================================
+
 // システム2: アーティストについて詳しく知る (Artists)
-// ==========================================
+
 
 // 一覧
 app.get("/artists", (req, res) => res.render("artists_list", { data: artists }));
@@ -153,10 +152,8 @@ app.get("/artists/delete/:id", (req, res) => {
     res.redirect("/artists");
 });
 
-
-// ==========================================
 // システム3: 今の気分に適した場所提案 (Places)
-// ==========================================
+
 
 // 一覧
 app.get("/places", (req, res) => res.render("places_list", { data: places }));
