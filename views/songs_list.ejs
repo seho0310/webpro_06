@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>曲リスト一覧</title>
+</head>
+<body>
+    <h1>米津玄師の曲リスト</h1>
+    
+    <p><a href="/songs/create">＋ 新しい曲を追加する</a></p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>曲名 (Title)</th>
+                <th>気分 (Mood)</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item) => { %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.title %></td>
+                <td><%= item.mood %></td>
+                <td>
+                    <a href="/songs/<%= item.id %>">詳細</a> | 
+                    <a href="/songs/edit/<%= item.id %>">編集</a> | 
+                    <a href="/songs/delete/<%= item.id %>">削除</a>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <hr>
+    <a href="/">トップに戻る</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アーティスト登録</title>
+</head>
+<body>
+    <h1>アーティストの新規登録</h1>
+
+    <form action="/artists" method="post">
+        <div>
+            <label for="name">アーティスト名:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="genre">ジャンル:</label>
+            <input type="text" id="genre" name="genre" required>
+        </div>
+        <div>
+            <label for="description">説明・プロフィール:</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        </div>
+        
+        <br>
+        <button type="submit">登録する</button>
+    </form>
+
+    <br>
+    <a href="/artists">一覧に戻る</a>
+</body>
+</html>

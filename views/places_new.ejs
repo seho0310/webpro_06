@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>場所の登録</title>
+</head>
+<body>
+    <h1>新しい場所の登録</h1>
+
+    <form action="/places" method="post">
+        <div>
+            <label for="name">場所名:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="vibe">雰囲気:</label>
+            <input type="text" id="vibe" name="vibe" placeholder="例: リラックス、集中" required>
+        </div>
+        <div>
+            <label for="description">説明:</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        </div>
+        
+        <br>
+        <button type="submit">登録する</button>
+    </form>
+
+    <br>
+    <a href="/places">一覧に戻る</a>
+</body>
+</html>

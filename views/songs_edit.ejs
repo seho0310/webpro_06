@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>編集</title>
+</head>
+<body>
+    <h1>曲情報の編集</h1>
+
+    <form action="/songs/update/<%= data.id %>" method="post">
+        <div>
+            <label for="title">曲名:</label>
+            <input type="text" id="title" name="title" value="<%= data.title %>" required>
+        </div>
+        <div>
+            <label for="mood">どんな気分？:</label>
+            <input type="text" id="mood" name="mood" value="<%= data.mood %>" required>
+        </div>
+        <div>
+            <label for="album">アルバム名:</label>
+            <input type="text" id="album" name="album" value="<%= data.album %>">
+        </div>
+        
+        <br>
+        <button type="submit">更新する</button>
+    </form>
+
+    <br>
+    <a href="/songs">一覧に戻る</a>
+</body>
+</html>

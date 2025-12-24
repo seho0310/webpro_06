@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アーティスト編集</title>
+</head>
+<body>
+    <h1>アーティスト情報の編集</h1>
+
+    <form action="/artists/update/<%= data.id %>" method="post">
+        <div>
+            <label for="name">アーティスト名:</label>
+            <input type="text" id="name" name="name" value="<%= data.name %>" required>
+        </div>
+        <div>
+            <label for="genre">ジャンル:</label>
+            <input type="text" id="genre" name="genre" value="<%= data.genre %>" required>
+        </div>
+        <div>
+            <label for="description">説明・プロフィール:</label>
+            <textarea id="description" name="description" rows="4" cols="50"><%= data.description %></textarea>
+        </div>
+        
+        <br>
+        <button type="submit">更新する</button>
+    </form>
+
+    <br>
+    <a href="/artists">一覧に戻る</a>
+</body>
+</html>

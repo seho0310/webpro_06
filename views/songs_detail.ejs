@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>曲の詳細</title>
+</head>
+<body>
+    <h1>曲の詳細情報</h1>
+
+    <ul>
+        <li><strong>ID:</strong> <%= data.id %></li>
+        <li><strong>曲名:</strong> <%= data.title %></li>
+        <li><strong>気分:</strong> <%= data.mood %></li>
+        <li><strong>収録アルバム:</strong> <%= data.album %></li>
+    </ul>
+
+    <p>
+        <a href="/songs/edit/<%= data.id %>">この曲を編集する</a>
+    </p>
+    
+    <a href="/songs">一覧に戻る</a>
+</body>
+</html>

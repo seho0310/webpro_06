@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>場所の詳細</title>
+</head>
+<body>
+    <h1>場所の詳細情報</h1>
+
+    <ul>
+        <li><strong>ID:</strong> <%= data.id %></li>
+        <li><strong>場所名:</strong> <%= data.name %></li>
+        <li><strong>雰囲気:</strong> <%= data.vibe %></li>
+        <li><strong>説明:</strong> <%= data.description %></li>
+    </ul>
+
+    <p>
+        <a href="/places/edit/<%= data.id %>">この場所を編集する</a>
+    </p>
+    
+    <a href="/places">一覧に戻る</a>
+</body>
+</html>

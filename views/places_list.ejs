@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>場所リスト一覧</title>
+</head>
+<body>
+    <h1>おすすめの場所リスト</h1>
+    
+    <p><a href="/places/create">＋ 新しい場所を追加する</a></p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>場所名 (Name)</th>
+                <th>雰囲気 (Vibe)</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item) => { %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.name %></td>
+                <td><%= item.vibe %></td>
+                <td>
+                    <a href="/places/<%= item.id %>">詳細</a> | 
+                    <a href="/places/edit/<%= item.id %>">編集</a> | 
+                    <a href="/places/delete/<%= item.id %>">削除</a>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <hr>
+    <a href="/">トップに戻る</a>
+</body>
+</html>

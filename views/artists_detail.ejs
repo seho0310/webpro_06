@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アーティスト詳細</title>
+</head>
+<body>
+    <h1>アーティスト詳細情報</h1>
+
+    <ul>
+        <li><strong>ID:</strong> <%= data.id %></li>
+        <li><strong>名前:</strong> <%= data.name %></li>
+        <li><strong>ジャンル:</strong> <%= data.genre %></li>
+        <li><strong>説明:</strong> <%= data.description %></li>
+    </ul>
+
+    <p>
+        <a href="/artists/edit/<%= data.id %>">情報を編集する</a>
+    </p>
+    
+    <a href="/artists">一覧に戻る</a>
+</body>
+</html>
